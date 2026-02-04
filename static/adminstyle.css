@@ -1,0 +1,175 @@
+body {
+  background: #202022;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  width: 240px;
+  background: #000000;
+  border-right: 1px solid #bcbdc0;
+  padding: 30px 20px;
+}
+
+.admin-logo {
+  color: #f9fafb;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-btn {
+  background: transparent;
+  border: 1px solid #1f2937;
+  color: #cbd5e1;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-btn:hover {
+  background: #085421;
+  color: #ffffff;
+}
+
+.menu-btn.active {
+  background: #115e2d;
+  color: white;
+  border: white;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 50px 60px;
+}
+
+.admin-section {
+  display: none;
+  max-width: 900px;
+}
+
+.admin-section.active {
+  display: block;
+}
+
+.admin-section h1 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #f9fafb;
+  margin-bottom: 35px;
+}
+
+form {
+  background: #0c0c0c;
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow: inset 0 0 0 1px #1f2937;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #334155;
+  background: #fbfbfb;
+  color: #000000;
+  font-size: 14.5px;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 160, 120, 0.25);
+}
+
+button[type="submit"] {
+  margin-top: 28px;
+  padding: 14px 34px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background:#115e2d;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background: #0a4b1f;
+}
+
+@media (max-width: 900px) {
+  .admin-wrapper {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .admin-sidebar nav {
+    flex-direction: row;
+  }
+
+  .admin-content {
+    padding: 30px 20px;
+  }
+}
+
+.delete-btn {
+    background-color: #e53935;
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    margin-left: 8px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c62828;
+    transform: translateY(-1px);
+}
+
+.delete-btn:active {
+    transform: scale(0.96);
+}
