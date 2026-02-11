@@ -1,7 +1,22 @@
+:root {
+  --main-bg: #202124;
+  --sidebar-bg: #2b2d31;      
+  --card-bg: #2a2c31;
+  --input-bg: #32343a;
+  --border: #3a3d44;
+
+  --primary: #22c55e;
+  --accent: #60a5fa;
+
+  --text-main: #f5f5f5;
+  --text-muted: #cbd5e1;
+}
+
 body {
-  background: #202022;
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--main-bg);
+  color: var(--text-main);
 }
 
 .admin-wrapper {
@@ -9,58 +24,68 @@ body {
   min-height: 100vh;
 }
 
+/* SIDEBAR (lighter than main) */
+
 .admin-sidebar {
-  width: 240px;
-  background: #000000;
-  border-right: 1px solid #bcbdc0;
-  padding: 30px 20px;
+  width: 200px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 35px 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
 }
 
 .admin-logo {
-  color: #f9fafb;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
   margin-bottom: 40px;
+  text-align: center;
+  color: var(--primary);
+  letter-spacing: 0.5px;
 }
 
 .admin-sidebar nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .menu-btn {
   background: transparent;
-  border: 1px solid #1f2937;
-  color: #cbd5e1;
-  padding: 14px 16px;
-  border-radius: 12px;
-  font-size: 14px;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
   font-weight: 600;
   cursor: pointer;
   text-align: left;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .menu-btn:hover {
-  background: #085421;
-  color: #ffffff;
+  background: #3a3d44;
+  color: white;
 }
 
 .menu-btn.active {
-  background: #115e2d;
+  background: var(--primary);
   color: white;
-  border: white;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
 }
+
+/* MAIN CONTENT */
 
 .admin-content {
   flex: 1;
   padding: 50px 60px;
+  background: var(--main-bg);
 }
 
 .admin-section {
   display: none;
-  max-width: 900px;
+  max-width: 950px;
 }
 
 .admin-section.active {
@@ -68,67 +93,102 @@ body {
 }
 
 .admin-section h1 {
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 800;
-  color: #f9fafb;
   margin-bottom: 35px;
+  color: var(--text-main);
 }
 
+/* FORM CARD */
+
 form {
-  background: #0c0c0c;
+  background: var(--card-bg);
   padding: 40px;
-  border-radius: 22px;
-  box-shadow: inset 0 0 0 1px #1f2937;
+  border-radius: 18px;
+  border: 1px solid var(--border);
 }
+
+/* LABELS */
 
 label {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: #cbd5e1;
+  color: var(--text-muted);
   margin-top: 18px;
   margin-bottom: 8px;
 }
+
+/* INPUTS */
 
 input,
 textarea,
 select {
   width: 100%;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: 1.5px solid #334155;
-  background: #fbfbfb;
-  color: #000000;
-  font-size: 14.5px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text-main);
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
 textarea {
   min-height: 120px;
+  resize: vertical;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 160, 120, 0.25);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
 }
+
+/* SUBMIT BUTTON */
 
 button[type="submit"] {
   margin-top: 28px;
-  padding: 14px 34px;
-  font-size: 15px;
+  padding: 13px 34px;
+  font-size: 14px;
   font-weight: 700;
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  background:#115e2d;
+  background: var(--primary);
   color: white;
+  transition: all 0.25s ease;
 }
 
 button[type="submit"]:hover {
-  background: #0a4b1f;
+  background: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
 }
+
+/* DELETE BUTTON */
+
+.delete-btn {
+  background-color: #dc2626;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  margin-left: 8px;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
 
 @media (max-width: 900px) {
   .admin-wrapper {
@@ -137,39 +197,26 @@ button[type="submit"]:hover {
 
   .admin-sidebar {
     width: 100%;
-    display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
     overflow-x: auto;
+    padding: 15px;
   }
 
   .admin-sidebar nav {
     flex-direction: row;
   }
 
+  .menu-btn {
+    white-space: nowrap;
+  }
+
   .admin-content {
     padding: 30px 20px;
   }
-}
 
-.delete-btn {
-    background-color: #e53935;
-    color: #ffffff;
-    padding: 8px 14px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    display: inline-block;
-    margin-left: 8px;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.delete-btn:hover {
-    background-color: #c62828;
-    transform: translateY(-1px);
-}
-
-.delete-btn:active {
-    transform: scale(0.96);
+  form {
+    padding: 25px;
+  }
 }
